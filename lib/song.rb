@@ -41,23 +41,23 @@ class Song
   end
 
   def self.new_from_filename(filename)
-    data = filename.split(" - ")
-    name = filename[0]
-    artist_name = filename[1].slice(".mp3")
+    parts = filename.split(" - ")
+    artist_name = parts[0]
+    song_name = parts[1].slice(".mp3", "")
 
     song = self.new
-    song.name = name
+    song.name = song_name
     song.artist_name = artist_name
     song
   end
 
   def self.create_from_filename(filename)
-    data = filename.split(" - ")
-    name = filename[0]
-    artist_name = filename[1].insert(-1, ".mp3")
+    parts = filename.split(" - ")
+    artist_name = parts[0]
+    song_name = parts[1].insert(".mp3", "")
 
-    song = self.new
-    song.name = name
+    song = self.create
+    song.name = song_name
     song.artist_name = artist_name
     song
   end
