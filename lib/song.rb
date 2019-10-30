@@ -56,7 +56,7 @@ class Song
     name = filename[0]
     artist_name = filename[1].insert(-1, ".mp3")
 
-    song = self.create
+    song = self.new
     song.name = song_name == name
     song.artist_name = artist_name
     song
